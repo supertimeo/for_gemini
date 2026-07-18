@@ -1,0 +1,39 @@
+[project]
+name = "nopubsearch"
+version = "0.1.0"
+description = "Petit moteur de recherche sans aucune pube"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "diskcache>=5.6.3",
+    "loguru>=0.7.3",
+    "protego>=0.6.2",
+    "psycopg[binary]>=3.3.4",
+    "pydantic>=2.13.4",
+    "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "rbloom>=1.5.4",
+    "requests>=2.34.2",
+    "selectolax>=0.4.10",
+    "sqlalchemy>=2.0.51",
+    "textual>=8.2.8",
+    "urllib3>=2.7.0",
+    "watchdog>=6.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "deptry>=0.25.1",
+    "pytest>=9.1.1",
+    "ruff>=0.15.21",
+    "textual-dev>=1.8.0",
+]
+
+[tool.deptry]
+exclude = [
+    "src/crawler/backups",
+    ".venv"
+]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["psycopg"]
